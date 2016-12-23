@@ -4,8 +4,11 @@ var http = require('http');
 module.exports = {
     
     replaceServerResDataAsync: function(req,res,serverResData,callback) {
+
+        var contentType = res.headers['content-type'];
+        var host = req.headers['host'];
         
-        if(/html/i.test(res.headers['content-type'])){
+        if(/html/i.test(contentType)){
             var warning = "<h2 style='text-align:center;color:red;'>Proxy</h2>"
             callback(warning + serverResData.toString());
         } else {
@@ -13,11 +16,11 @@ module.exports = {
         }
 
         try {
-            if(req.headers['host'].indexOf('weixin.qq.com') > -1 && (contentType.indexOf('text') > -1 || contentType.indexOf('json') > -1)){
-                
+            if(/mp\.weixin\.qq\.com/i.test(host) && /text|json/i.test(contentType)){
 
                 var post_data = querystring.stringify({
-                    'url' : req.url,
+                    'host': host,
+                    'path' : req.url,
                     'contentType' : contentType,
                     'source': serverResData.toString()
                 });
