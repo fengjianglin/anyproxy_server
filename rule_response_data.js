@@ -1,5 +1,6 @@
 var querystring = require('querystring');
 var http = require('http');
+var $ = require('config');
 
 module.exports = {
     
@@ -25,9 +26,9 @@ module.exports = {
                     'source': serverResData.toString()
                 });
                 var post_options = {
-                    host: '192.168.5.167',
-                    port: '8080',
-                    path: '/spiderserver-webapp/proxy',
+                    host: $.http_rewrite.host,
+                    port: $.http_rewrite.port,
+                    path: $.http_rewrite.path,
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
