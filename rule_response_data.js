@@ -1,6 +1,6 @@
 var querystring = require('querystring');
 var http = require('http');
-var $ = require('config');
+var $ = require('./config');
 
 module.exports = {
     
