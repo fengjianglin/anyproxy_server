@@ -4,6 +4,8 @@ anyproxy_rule usage:
 ---
 服务器端
 
+https://nodejs.org/en/download/package-manager/
+
 1. 安装anyproxy
 
     npm install -g anyproxy --registry https://registry.npm.taobao.org info underscore
