@@ -1,35 +1,38 @@
 #!/bin/bash
 
-pid=`ps -ef|grep "rule_response_data"|grep -v grep|awk '{print $2}'`
-
 start(){
-su -l webuser -c "anyproxy -i --rule /data/web/anyproxy_rule/rule_response_data.js &"
-if [ $? -eq 0 ];then
-echo "Starting anyproxy: [  OK  ]"
-else
-echo "Starting anyproxy: [  Faild  ]"
-fi
+	nohup ./anyproxy_server -i &
+	if [ $? -eq 0 ];then
+		echo "Starting anyproxy: [  OK  ]"
+	else
+		echo "Starting anyproxy: [  Faild  ]"
+	fi
 }
+
 stop(){
-kill -QUIT $pid
-if [ $? -eq 0 ];then
-echo "Stopping anyproxy: [  OK  ]"
-else
-echo "Stopping anyproxy: [  Faild  ]"
-fi
+	pid=`ps -ef | grep "anyproxy_server" | grep -v grep | awk '{print $2}'`
+	kill -QUIT $pid
+	if [ $? -eq 0 ];then
+		echo "Stopping anyproxy: [  OK  ]"
+	else
+		echo "Stopping anyproxy: [  Faild  ]"
+	fi
 }
 
 case $1 in
  "start")
-     start
+	start
+  ;;
+ "stop")
+	stop
   ;;
 
  "restart")
-     start
-     stop
+	stop
+	start     
   ;;
  
  *)
-     echo $"Usage: $0 {start|stop|restart}"
-     exit 2
+	echo $"Usage: $0 {start|stop|restart}"
+	exit 2
 esac

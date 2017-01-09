@@ -1,0 +1,8 @@
+{
+  "name": "anyproxy-server",
+  "version": "0.0.1",
+  "description": "anyproxy-server",
+  "dependencies": {
+    "anyproxy": "^3.10.3"
+  }
+}
