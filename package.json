@@ -3,6 +3,6 @@
   "version": "0.0.1",
   "description": "anyproxy-server",
   "dependencies": {
-    "anyproxy": "git://github.com/xxcode/anyproxy.git#xxcode"
+    "anyproxy": "git+https://code.csdn.net/fandyvon/anyproxy.git#xxcode"
   }
 }
