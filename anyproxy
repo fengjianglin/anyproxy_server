@@ -1,7 +1,7 @@
 #!/bin/bash
 
 start(){
-	nohup ./anyproxy_server -i &
+	nohup ./anyproxy_server &
 	if [ $? -eq 0 ];then
 		echo "Starting anyproxy: [  OK  ]"
 	else

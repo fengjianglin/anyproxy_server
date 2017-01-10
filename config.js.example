@@ -4,8 +4,8 @@ module.exports = {
 		host: 'localhost'
 	},
 	http_rewrite: {
-		host: '192.168.5.167',
+		host: 'localhost',
 		port: 8080,
-		path: '/spiderserver-webapp/proxy'
+		path: '/proxy'
 	}
 }
