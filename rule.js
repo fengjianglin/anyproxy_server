@@ -10,7 +10,7 @@ module.exports = {
         var host = req.headers['host'];
         
         if(/html/i.test(contentType)){
-            var warning = "<h2 style='text-align:center;color:red;'>Proxy</h2>"
+            var warning = "<h3 style='text-align:center;color:red;'>Proxy:" + $.proxy.host + "</h3>"
             callback(warning + serverResData.toString());
         } else {
             callback(serverResData);
