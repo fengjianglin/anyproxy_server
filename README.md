@@ -18,11 +18,9 @@ https://nodejs.org/en/download/package-manager/
 
 4. cd anyproxy_rule， 启动服务执行：
 
-    nohup sudo anyproxy -i --rule rule_response_data.js &  
-    
-    注：参数-i是解析HTTPS的意思
+    ./anyproxy start
 
-6. 地址
+5. 地址
 
     Web控制台：http://x.csdn.net:8002/
     
@@ -30,7 +28,7 @@ https://nodejs.org/en/download/package-manager/
     
 	证书二维码：http://x.csdn.net:8002/qr_root
 
-7. 代理设置端口：8001
+6. 代理设置端口：8001
 
 ---
 
